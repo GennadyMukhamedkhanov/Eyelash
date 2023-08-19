@@ -5,14 +5,25 @@ from my_site.models import Time, Shedule, Service, Booking, User
 
 # Register your models here.
 
-@admin.register(Booking)
+# @admin.register(Booking)
+# class BookingAdmin(admin.ModelAdmin):
+#     list_display = ('user', 'shedule')
+#     #list_display_links = ('status')
 class BookingAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'shedule')
+    list_display_links = ()
+    #search_fields = ('user_username',)
+    list_editable = ('shedule',)
+    list_filter = ('user', 'shedule')
+    fields = ['shedule','user', ]
 
+admin.site.register(Booking, BookingAdmin)
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'description', 'price', 'image')
+    list_display_links = ('name', 'description',)
+
 
 
 @admin.register(Shedule)

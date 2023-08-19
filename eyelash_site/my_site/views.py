@@ -4,3 +4,5 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     return HttpResponse(f'Главная страница')
+
+#admin MGM 12345
