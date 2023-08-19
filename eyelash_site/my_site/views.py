@@ -1,8 +1,8 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
 
-# Create your views here.
-def index(request):
-    return HttpResponse(f'Главная страница')
 
-#admin MGM 12345
+class RenderHomeView(View):
+
+    def get(self, request):
+        return render(request, 'my_site/index.html')
