@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все услуги</title>
+</head>
+<body>
+    {% for i in data%}
+    <h2>{{i.name}}   {{i.description}}   {{i.price}} рублей</h2>
+    <a href="shedule">Записаться</a><br>
+        <img src="{{i.image.url}}" alt="" style="width:100px;height:100px"><br>
+
+    {%endfor%}
+
+</body>
+</html>

@@ -1,8 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.views import View
+from my_site.forms import HomeForm
+from my_site.models import Service, Shedule
 
 
 class RenderHomeView(View):
-
     def get(self, request):
-        return render(request, 'my_site/index.html')
+        homeform = HomeForm()
+        data = Service.objects.all()
+        return render(request, 'my_site/index.html', context={'data': data,
+                                                              'form': homeform})
+    def post(self, request):
+        id_procedure = request.POST.get('name_pr')
+        data_procedure = Shedule.objects.filter(id=id_procedure)[0]
+        return render(request, 'my_site/recording.html', context={'data': data_procedure.service,
+                                                                  'start': data_procedure.date.start_date})
+
+
+
+class RecordingView(View):
+    pass
+class ServiceView(View):
+    def get(self, request):
+        data = Service.objects.all()
+        return render(request, 'my_site/service.html', context={'data': data})
+
+
+class SheduleView(View):
+    def get(self, request):
+        shed = Shedule.objects.all()
+        return render(request, 'my_site/shedule.html', context={'data': shed})

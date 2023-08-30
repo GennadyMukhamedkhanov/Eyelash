@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Услуги</title>
+   <title>Запись</title>
 </head>
 <body>
-<h1>Список услуг</h1>
+<h1>Запись на услугу</h1>
 
-{% for i in data%}
-        <a href="service">{{i.name}}</a><br>
-        <img src="{{i.image.url}}" alt="" style="width:100px;height:100px"><br>
+{{ data }}------{{start}}
 
-{%endfor%}
 
 
         <h2>Запись на процедуры</h2>
