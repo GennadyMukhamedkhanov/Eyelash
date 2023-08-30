@@ -5,10 +5,14 @@
     <title>Услуги</title>
 </head>
 <body>
+<form action="{% url 'home' %}">
+    <input type="text" name="search">
+    <button type="submit">Поиск</button>
+</form>
 <h1>Список услуг</h1>
 
 {% for i in data%}
-        <a href="service">{{i.name}}</a><br>
+        <a href="{% url 'service' i.id%}">{{i.name}}</a><br>
         <img src="{{i.image.url}}" alt="" style="width:100px;height:100px"><br>
 
 {%endfor%}
