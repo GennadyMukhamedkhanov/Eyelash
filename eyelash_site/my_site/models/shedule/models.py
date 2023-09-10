@@ -7,7 +7,7 @@ class Shedule(models.Model):
     date = models.ForeignKey('Time', on_delete=models.CASCADE, verbose_name='Время проведения услуги')
 
     def __str__(self):
-        return f'{self.service.name} {self.date.start_date} - {self.date.end_date}'
+        return f'{self.service.name} {self.date.start_date}  {self.date.status}'
 
     class Meta:
         db_table = 'shedule'

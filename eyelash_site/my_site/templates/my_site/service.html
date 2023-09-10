@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Все услуги</title>
+    <title>Услуга</title>
 </head>
 <body>
-    {% for i in data%}
-    <h2>{{i.name}}   {{i.description}}   {{i.price}} рублей</h2>
-    <a href="{% url 'shedule' %}">Записаться</a><br>
-        <img src="{{i.image.url}}" alt="" style="width:100px;height:100px"><br>
-    {%endfor%}
+    <h2>{{data.name}}  </h2>
+    <a href="{% url 'shedule' data.name%}">Записаться</a><br>
+        <img src="{{data.image.url}}" alt="" style="width:100px;height:100px"><br>
 
 </body>
 </html>

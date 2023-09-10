@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# Услуга
 class Service(models.Model):
     name = models.CharField(max_length=30, verbose_name='Название')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')

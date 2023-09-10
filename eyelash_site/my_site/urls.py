@@ -4,6 +4,6 @@ from .views import RenderHomeView, ServiceView, SheduleView, RecordingView
 urlpatterns = [
     path('', RenderHomeView.as_view(), name='home'),
     path('service/<int:id>/', ServiceView.as_view(), name='service'),
-    path('shedule/fewfwef/asdsadasd/asdasd/asd', SheduleView.as_view(), name='shedule'),  # Почему такой путь
-    path('recording/', RecordingView.as_view(), name='recording'),  #Запись на услугу
+    path('shedule/<str:name_procedure>/', SheduleView.as_view(), name='shedule'),
+    path('recording/<int:id>/', RecordingView.as_view(), name='recording'),  #Запись на услугу
 ]

@@ -8,24 +8,23 @@
 <form action="{% url 'home' %}">
     <input type="text" name="search">
     <button type="submit">Поиск</button>
+
 </form>
+
+
 <h1>Список услуг</h1>
 
-{% for i in data%}
-        <a href="{% url 'service' i.id%}">{{i.name}}</a><br>
-        <img src="{{i.image.url}}" alt="" style="width:100px;height:100px"><br>
+{% for servis in data%}
+        <a href="{% url 'service' servis.id%}">{{servis.name}}</a><br>
+        <h5>{{ servis.description}}</h5>
+        <h5>{{ servis.price}} рублей</h5>
+        <img src="{{servis.image.url}}" alt="" style="width:100px;height:100px">
+
+            <h1></h1><br><br>
 
 {%endfor%}
 
 
-        <h2>Запись на процедуры</h2>
-    <form method="POST" >
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
 
-            <input type="submit" value="Засисаться">
-    </form>
 </body>
 </html>

@@ -36,7 +36,7 @@ class SheduleAdmin(admin.ModelAdmin):
 
 @admin.register(Time)
 class TimeAdmin(admin.ModelAdmin):
-    list_display = ('start_date', 'end_date')
+    list_display = ('start_date', 'end_date', 'status')
     ordering = ('start_date',)
     #list_display_links = ('start_date',)
 
