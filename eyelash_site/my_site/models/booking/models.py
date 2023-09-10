@@ -1,8 +1,12 @@
 from django.db import models
 from my_site import *
+
+
 class Booking(models.Model):
-    shedule = models.ForeignKey('Shedule', on_delete=models.CASCADE, verbose_name='Услуга')
-    user = models.ForeignKey('User', on_delete=models.CASCADE, verbose_name='Пользователь')
+    shedule = models.ForeignKey('Shedule', on_delete=models.CASCADE,
+                                verbose_name='Услуга')
+    user = models.ForeignKey('User', on_delete=models.CASCADE,
+                             verbose_name='Пользователь')
     status = models.BooleanField(default=False, verbose_name='Одобрено')
 
     def __str__(self):

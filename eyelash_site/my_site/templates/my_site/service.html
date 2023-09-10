@@ -5,9 +5,15 @@
     <title>Услуга</title>
 </head>
 <body>
-    <h2>{{data.name}}  </h2>
-    <a href="{% url 'shedule' data.name%}">Записаться</a><br>
-        <img src="{{data.image.url}}" alt="" style="width:100px;height:100px"><br>
-
+<h2>{{data.name}} </h2>
+<img src="{{data.image.url}}" alt="" style="width:100px;height:100px"><br>
+<h5>{{ data.description}}</h5>
+<h5>{{ data.price}} рублей</h5>
+<select name="choice">
+  <option value="first">First Value</option>
+  <option value="second" selected>Second Value</option>
+  <option value="third">Third Value</option>
+</select>
+<a href="{% url 'schedule' data.id%}">Записаться</a><br>
 </body>
 </html>

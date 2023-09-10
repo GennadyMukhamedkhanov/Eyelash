@@ -2,23 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   <title>Запись</title>
+    <title>Запись</title>
 </head>
 <body>
 <h1>Запись на услугу</h1>
-
 {{ data }}------{{start}}
-
-
-
-        <h2>Запись на процедуры</h2>
-    <form method="POST" >
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
-
-            <input type="submit" value="Засисаться">
-    </form>
+<h2>Запись на процедуры</h2>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Записаться">
+</form>
 </body>
 </html>

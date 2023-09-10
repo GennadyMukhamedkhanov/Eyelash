@@ -5,10 +5,9 @@
     <title>Запись</title>
 </head>
 <body>
-    {%for i in data%}
-    <a href="{% url 'recording' i.id %}"><h2>{{i.service.name}} {{i.date.start_date}}   {{i.date.status}}</h2></a><br>
-
-   
-    {%endfor%}
+{%for schedule in data%}
+<a href="{% url 'recording' schedule.id %}"><h2>{{schedule.service.name}}
+    {{schedule.date.start_date}} {{schedule.date.status}}</h2></a><br>
+{%endfor%}
 </body>
 </html>

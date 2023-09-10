@@ -14,16 +14,12 @@
 
 <h1>Список услуг</h1>
 
-{% for servis in data%}
-        <a href="{% url 'service' servis.id%}">{{servis.name}}</a><br>
-        <h5>{{ servis.description}}</h5>
-        <h5>{{ servis.price}} рублей</h5>
-        <img src="{{servis.image.url}}" alt="" style="width:100px;height:100px">
-
-            <h1></h1><br><br>
+{% for service in data%}
+<a href="{% url 'service' service.id%}">{{service.name}}</a><br>
+<img src="{{service.image.url}}" alt="" style="width:100px;height:100px">
+<h1></h1><br><br>
 
 {%endfor%}
-
 
 
 </body>

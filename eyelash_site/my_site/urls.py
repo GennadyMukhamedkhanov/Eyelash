@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import RenderHomeView, ServiceView, SheduleView, RecordingView
+from .views import (RenderHomeView, ServiceDetailView, ScheduleListView,
+                    RecordingCreateView)
 
 urlpatterns = [
     path('', RenderHomeView.as_view(), name='home'),
-    path('service/<int:id>/', ServiceView.as_view(), name='service'),
-    path('shedule/<str:name_procedure>/', SheduleView.as_view(), name='shedule'),
-    path('recording/<int:id>/', RecordingView.as_view(), name='recording'),  #Запись на услугу
+    path('services/<int:id>/', ServiceDetailView.as_view(), name='service'),
+    path('schedules/<int:id>/', ScheduleListView.as_view(), name='schedule'),
+    path('recording/<int:id>/', RecordingCreateView.as_view(),
+         name='recording'),
+    # Запись на услугу
 ]
