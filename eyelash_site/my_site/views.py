@@ -30,7 +30,7 @@ class ServiceView(View):
 # Расписание
 class SheduleView(View):
     def get(self, request, name_procedure):
-        sh = Shedule.objects.filter(service__name = name_procedure)
+        sh = Shedule.objects.filter(service__name = name_procedure, status=False)
 
         return render(request, 'my_site/shedule.html', context={'data': sh})
 
@@ -39,12 +39,9 @@ class SheduleView(View):
 class RecordingView(View):
     def get(self, request, id):
         user = request.user
-        #Shedule.objects.filter(id=id).update(date__status='Бронь')
-        #shedule = Shedule.objects.get(id=id).create(date__status='Бронь')
         shedule = Shedule.objects.get(id=id)
-        shedule.date.status = 'Бронь'
-        #print(shedule)
-
+        shedule.status = True
+        shedule.save()
         Booking.objects.create(user=user,shedule=shedule )
         return redirect('home')
 

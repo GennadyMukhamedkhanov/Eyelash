@@ -29,16 +29,16 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Shedule)
 class SheduleAdmin(admin.ModelAdmin):
 
-    list_display = ('service', 'date')
+    list_display = ('service', 'date', 'status')
     list_filter = ('service', 'date')
 
 
 
 @admin.register(Time)
 class TimeAdmin(admin.ModelAdmin):
-    list_display = ('start_date', 'end_date', 'status')
+    list_display = ('start_date', 'end_date')
     ordering = ('start_date',)
-    #list_display_links = ('start_date',)
+
 
 
 @admin.register(User)
