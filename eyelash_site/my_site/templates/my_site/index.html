@@ -1,15 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Услуги</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<img src="eyelash_site\my_site\static\img\2023-09-12_20-28-02фото.jpg" alt="Здесь фото гор" style="width:1100px;height:100px">
+<img src="{% static 'img/2023-09-12_20-28-02фото.jpg' %}" alt="Здесь фото гор" style="width:1100px;height:100px">
+<br>
+
+<a href="{% url 'authorization' %}">Авторизация</a>
+
 <form action="{% url 'home' %}">
     <input type="text" name="search" title="Введи название процедуры">
     <button type="submit" ><b>Поиск</b></button>
-
 </form>
 
 

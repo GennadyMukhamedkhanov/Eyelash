@@ -16,18 +16,20 @@
 <h2>Выбрать время</h2>
 
 
-
-<form action="{% url 'recording' %}" >
+<form action="{% url 'recording' %}">
 
     <select name="choice" size="{{count}}">
         {%for shedule in time%}
-            <option value="{{ shedule.id }}" >{{shedule.date.start_date}}</option>
+        <option value="{{ shedule.id }}">{{shedule.date.start_date}}</option>
         {%endfor%}
     </select>
+    {% if user.is_authenticated %}
     <button type="submit">Записаться</button>
+    {% else %}
+     <button type="submit" disabled>Записаться</button>
+    {% endif %}
 
 </form>
-
 
 
 </body>

@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 from django.views import View
-from my_site.models import Service, Shedule, Booking
+from my_site.models import Service, Shedule, Booking, User
 
 
 class RenderHomeView(View):
@@ -23,8 +24,6 @@ class ServiceDetailView(View):
                                                                 'count': count})
 
 
-
-
 class RecordingCreateView(View):
     def get(self, request):
         user = request.user
@@ -35,6 +34,22 @@ class RecordingCreateView(View):
         Booking.objects.create(user=user, shedule=shedule)
         return redirect('home')
 
+
+class AuthorizationView(View):
+
+    def get(self, request):
+        return render(request, 'my_site/authorization.html')
+
+    def post(self, request):
+        username = request.POST['login']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        return render(request, 'my_site/authorization.html', context={
+            'error': 'Попробуйте снова!'
+        })
 
 # Расписание
 # class ScheduleListView(View):
