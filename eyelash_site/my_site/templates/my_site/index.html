@@ -5,19 +5,23 @@
     <title>Услуги</title>
 </head>
 <body>
+<img src="eyelash_site\my_site\static\img\2023-09-12_20-28-02фото.jpg" alt="Здесь фото гор" style="width:1100px;height:100px">
 <form action="{% url 'home' %}">
-    <input type="text" name="search">
-    <button type="submit">Поиск</button>
+    <input type="text" name="search" title="Введи название процедуры">
+    <button type="submit" ><b>Поиск</b></button>
 
 </form>
 
 
-<h1>Список услуг</h1>
+<em><h1>Список услуг</h1></em>
 
-{% for service in data%}
-<a href="{% url 'service' service.id%}">{{service.name}}</a><br>
-<img src="{{service.image.url}}" alt="" style="width:100px;height:100px">
-<h1></h1><br><br>
+    {% for service in data%}
+<ul type="circle">
+    <li><b><a href="{% url 'service' service.id%}" title="Нажми на меня" target="_blank">{{service.name}}</a></b></li>
+</ul>
+    <img src="{{service.image.url}}" alt="" style="width:100px;height:100px">
+    <hr>
+
 
 {%endfor%}
 

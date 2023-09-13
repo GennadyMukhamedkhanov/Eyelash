@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ПРивет</title>
+</head>
+<body>
+<h1>TEST</h1>
+
+<!--
+<form action="{% url 'recording' %}" >
+
+    <select name="choice" size="{{count}}">
+        {%for shedule in time%}
+            <option value="{{ shedule.id }}" >{{shedule.date.start_date}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit">Записаться</button>
+
+</form>
+-->
+
+<!--
+ {% for service in data%}
+<ul type="circle">
+    <li><b><a href="{% url 'service' service.id%}" title="Нажми на меня" target="_blank">{{service.name}}</a></b></li>
+</ul>
+    <img src="{{service.image.url}}" alt="" style="width:100px;height:100px">
+    <hr>
+{%endfor%}
+
+-->
+
+<ol type="1">
+{%for shedule in time%}
+    <li><a href="{% url 'recording' shedule.id%}" title="Нажми на меня">{{shedule.date.start_date}}</a></li><br>
+{%endfor%}
+</ol>
+
+</body>
+</html>

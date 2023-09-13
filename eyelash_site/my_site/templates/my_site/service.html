@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <title>Услуга</title>
 </head>
-<body>
-<h2>{{data.name}} </h2>
+<body title="Скорее записывайся)))">
+<em><h2>{{ data.name}} </h2></em>
 <img src="{{data.image.url}}" alt="" style="width:100px;height:100px"><br>
-<h5>{{ data.description}}</h5>
-<h5>{{ data.price}} рублей</h5>
-<select name="choice">
-  <option value="first">First Value</option>
-  <option value="second" selected>Second Value</option>
-  <option value="third">Third Value</option>
-</select>
-<a href="{% url 'schedule' data.id%}">Записаться</a><br>
+<ul>
+    <li><h5>{{ data.description}}</h5></li>
+    <li><h5><big>{{ data.price}}</big> рублей</h5></li>
+</ul>
+
+
+<h2>Выбрать время</h2>
+
+
+
+<form action="{% url 'recording' %}" >
+
+    <select name="choice" size="{{count}}">
+        {%for shedule in time%}
+            <option value="{{ shedule.id }}" >{{shedule.date.start_date}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit">Записаться</button>
+
+</form>
+
+
+
 </body>
 </html>
