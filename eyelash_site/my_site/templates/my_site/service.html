@@ -17,12 +17,13 @@
 
 
 <form action="{% url 'recording' %}">
-
+<h2>{{message}}</h2>
     <select name="choice" size="{{count}}">
         {%for shedule in time%}
         <option value="{{ shedule.id }}">{{shedule.date.start_date}}</option>
         {%endfor%}
     </select>
+
     {% if user.is_authenticated %}
     <button type="submit">Записаться</button>
     {% else %}
