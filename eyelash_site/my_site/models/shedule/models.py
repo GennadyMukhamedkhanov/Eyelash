@@ -3,7 +3,7 @@ from django.db import models
 
 #  Расписаниe
 class Shedule(models.Model):
-    service = models.ForeignKey('Service', on_delete=models.CASCADE,
+    service = models.ForeignKey('Service', on_delete=models.CASCADE, related_name='shedule',
                                 verbose_name='Услуга')
     date = models.ForeignKey('Time', on_delete=models.CASCADE,
                              verbose_name='Время проведения услуги')

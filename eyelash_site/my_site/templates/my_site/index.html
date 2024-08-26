@@ -20,8 +20,6 @@
 <p>{{user.username}} {{user.phone}}</p>
 {%endif%}
 
-
-
 <form action="{% url 'home' %}">
     <input type="text" name="search" title="Введи название процедуры">
     <button type="submit"><b>Поиск</b></button>
@@ -36,8 +34,6 @@
 </ul>
 <img src="{{service.image.url}}" alt="" style="width:100px;height:100px">
 <hr>
-
-
 {%endfor%}
 
 
