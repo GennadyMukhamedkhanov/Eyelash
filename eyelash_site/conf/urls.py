@@ -12,3 +12,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# import os
+# os.system("sudo -u postgres pg_dump browdb > db2.sql")
